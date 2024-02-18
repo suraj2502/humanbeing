@@ -144,10 +144,10 @@ function CallbackForm({ isOpen, setIsOpen }) {
         body: JSON.stringify({
           fullName: nameInput,
           email: emailInput,
-          phoneDetails: {
+          phoneDetails: [{
             countryCode: parsePhoneNumber(phoneInput).countryCallingCode,
             phoneNumber: parsePhoneNumber(phoneInput).nationalNumber,
-          },
+          }],
         }),
 
         // Adding headers to the request
