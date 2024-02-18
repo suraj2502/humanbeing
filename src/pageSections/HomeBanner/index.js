@@ -21,6 +21,7 @@ function HomeBanner({ data, name }) {
         customClass={Styles.container__button}
         name={data.ctaText}
       />
+      <span>2024 © Altruvo Social Ventures Pvt. Ltd.</span>
     </section>
   );
 }

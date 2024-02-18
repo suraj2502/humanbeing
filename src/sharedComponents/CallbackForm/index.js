@@ -136,7 +136,7 @@ function CallbackForm({ isOpen, setIsOpen }) {
       console.log("phoneInput", parsePhoneNumber(phoneInput));
       console.log("nameInput", nameInput);
       console.log("emailInput", emailInput);
-      fetch("http://localhost:8078/api/store-visitor-data", {
+      fetch("http://altruvo.org/api/store-visitor-data", {
         // Adding method type
         method: "POST",
 

@@ -7,6 +7,16 @@
   justify-content: center;
   flex-direction: column;
 
+  span {
+    color: #e9eceb;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    position: absolute;
+    bottom: 20px;
+  }
+  
   &__headline {
     color: #e9eceb;
     text-align: center;
