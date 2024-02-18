@@ -1,0 +1,84 @@
+@import '../../styles//breakpoints';
+
+.header {
+  width: 100vw;
+  height: 91px;
+  background: transparent;
+  //   backdrop-filter: blur(50%);
+  padding: 0 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  backdrop-filter: blur(100px);
+
+  // @include if-device(phone) {
+	// 	padding: 0px;
+	// 	flex-direction: column;
+	// }
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+
+    &__logoContainer {
+      display: flex;
+      gap: 8px;
+
+      span {
+        color: #4ea1d0;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+
+    &__nav {
+      margin-left: 40px;
+      display: flex;
+      gap: 40px;
+      color: #e9eceb;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    &__rightContainer {
+      position: absolute;
+      right: 100px;
+    }
+  }
+
+  //   &__logoContainer {
+  //     display: flex;
+  //     gap: 8px;
+
+  //     span {
+  //       color: #4ea1d0;
+  //       font-size: 16px;
+  //       font-weight: 700;
+  //       line-height: normal;
+  //     }
+  //   }
+
+  //   &__nav {
+  //     margin-left: 40px;
+  //     display: flex;
+  //     gap: 40px;
+  //     color: #e9eceb;
+  //     font-size: 14px;
+  //     font-style: normal;
+  //     font-weight: 500;
+  //     line-height: normal;
+  //   }
+
+  //   &__rightContainer {
+  //     position: absolute;
+  //     right: 50px;
+  //   }
+}

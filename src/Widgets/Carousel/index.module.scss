@@ -1,0 +1,75 @@
+// .swiper {
+//     width: 100%;
+//     height: 100%;
+//   }
+
+//   .swiper-slide, .swiper-slide-active {
+//     text-align: center;
+//     font-size: 18px;
+//     background: #fff;
+
+//     /* Center slide text vertically */
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin-left: 20px;
+//   }
+
+//   .swiper-slide img {
+//     display: block;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+
+// .carousel {
+//   display: flex;
+//   align-items: center;
+// }
+
+.customPrevious {
+  position: absolute;
+  top: 10px;
+  width: 45px;
+  height: calc(100% - 20px);
+  color: #1a202c;
+  cursor: pointer;
+  left: -45px;
+  transform: rotate(180deg);
+}
+
+.customPrevious::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  border-width: 3px 3px 0 0;
+  border-style: solid;
+  transform: rotate(45deg) translate(-50%, -50%);
+}
+
+.customNext {
+    position: absolute;
+    top: 10px;
+    width: 45px;
+    height: calc(100% - 20px);
+    color: #1a202c;
+    cursor: pointer;
+    right: -45px;
+  }
+  
+  .customNext::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-width: 3px 3px 0 0;
+    border-style: solid;
+    transform: rotate(45deg) translate(-50%, -50%);
+  }

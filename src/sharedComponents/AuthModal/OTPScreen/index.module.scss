@@ -1,0 +1,95 @@
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.00666667em;
+  color: #1a202c;
+
+  // @include if-device(phone) {
+  // 	font-weight: 500;
+  // 	line-height: 30px;
+  // }
+}
+
+// .editContainer {
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   margin-bottom: 10px;
+
+//   &__editText {
+//     font-weight: 600;
+//     font-size: 16px;
+//     line-height: 27px;
+//     display: flex;
+//     align-items: center;
+//     letter-spacing: -0.00533333em;
+//     color: #4a5568;
+//   }
+
+//   &__inner {
+//     display: flex;
+//     margin-left: 14px;
+//     cursor: pointer;
+//     align-items: center;
+
+//     &__text {
+//       font-weight: 500;
+//       font-size: 14px;
+//       line-height: 100%;
+//       color: #e95454;
+//       padding-left: 4px;
+//     }
+//   }
+// }
+
+.otpWrapper {
+  &__resendOtp {
+    margin-top: 20px;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: #1a202c;
+    text-align: left;
+  }
+
+  &__editContainer {
+    gap: 3px;
+    display: flex;
+    align-items: baseline;
+    margin-top: -16px;
+    // margin-bottom: 16px;
+
+    &__phone {
+      font-size: 14px;
+      line-height: 24px;
+      color: #7c8698;
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 24px;
+      color: #1966fa;
+      cursor: pointer;
+    }
+  }
+}
+
+// .otpWrapper {
+// 	&__resendOtp {
+// 		margin-top: 20px;
+// 	}
+// }
+
+.otpInput {
+  // @include if-device(phone) {
+  // 	& input[type='tel'] {
+  // 		width: 50px;
+  // 		height: 50px;
+  // 		font-size: 20px;
+  // 	}
+  // }
+}

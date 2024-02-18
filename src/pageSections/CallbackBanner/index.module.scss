@@ -1,0 +1,28 @@
+.container {
+  height: auto;
+  background: #4ea1d0;
+  padding: 32px 50px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+  position: relative;
+  align-items: center;
+
+  &__btn {
+    color: #4ea1d0;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 12px 24px;
+    border-radius: 28px;
+    background: #fff;
+    width: fit-content;
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+  }
+}

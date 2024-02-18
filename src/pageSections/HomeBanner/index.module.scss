@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &__headline {
+    color: #e9eceb;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 72px; /* 120% */
+    max-width: 470px;
+  }
+
+  &__description {
+    color: #e9eceb;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 20px;
+  }
+
+  &__comingsoon {
+    color: #e9eceb;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 30px;
+  }
+
+  &__button {
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 16px 32px;
+    border-radius: 45px;
+    background: #4ea1d0;
+    width: fit-content;
+    margin-top: 20px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,75 @@
+.authModal {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  &__imgWrapper {
+    width: 340px;
+    background: black;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+  }
+
+  &__formWrapper {
+    width: 400px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    &__btn {
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 200;
+      line-height: normal;
+      padding: 12px 24px;
+      background: #4ea1d0;
+      width: calc(100% - 100px);
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: auto;
+      outline: none;
+      border: none;
+      // position: absolute;
+      // right: 50px;
+
+      &--disabled {
+        cursor: not-allowed;
+        background: #dfe1e6;
+        pointer-events: none;
+        color: #fff;
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+        padding: 12px 24px;
+
+        width: calc(100% - 100px);
+        border-radius: 8px;
+        text-decoration: none;
+
+        margin-top: auto;
+        outline: none;
+        border: none;
+      }
+    }
+
+    &__skip {
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 14px;
+      line-height: 24px;
+      color: #7c8698;
+      margin-top: 6px;
+
+      &--hidden {
+        visibility: hidden;
+      }
+    }
+  }
+}

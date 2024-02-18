@@ -1,0 +1,17 @@
+.container {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  &__dropdown {
+    width: 400px;
+  }
+
+  &__currency {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+}

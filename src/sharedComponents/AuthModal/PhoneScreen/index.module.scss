@@ -1,0 +1,35 @@
+.title {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: #1a202c;
+  text-align: left;
+}
+
+.phoneInputCustom {
+  border: 1px solid #dfe1e6;
+  display: flex;
+  padding: 0px 8px;
+  background: #fff;
+  border-radius: 8px;
+  height: 44px;
+  overflow: hidden;
+  align-items: center;
+  width: calc(100% - 100px);
+  margin-top: 32px;
+
+  input {
+    border: none;
+    outline: none;
+  }
+}
+
+.error {
+  margin-top: 2px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: #e95454;
+  text-align: left;
+  left: 0;
+}

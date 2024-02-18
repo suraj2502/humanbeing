@@ -1,0 +1,216 @@
+// @import "styles/breakpoints";
+
+.main {
+  position: relative;
+}
+
+.selectBox {
+  height: 44px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #dfe1e6;
+  border-radius: 8px;
+  padding: 0 12px;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 24px;
+  user-select: none;
+  outline: 0;
+
+  //   @include if-device(phone) {
+  //     height: 36px;
+  //   }
+
+  &:focus,
+  &:active {
+    border-color: #4a5568;
+  }
+
+  & > span:not(:empty) {
+    color: #1a202c;
+
+    // @include if-device(phone) {
+    //   font-size: 14px;
+    // }
+
+    & + .label {
+      font-size: 14px;
+      top: -9px;
+      background: #fff;
+      padding: 0 4px;
+      left: 12px;
+
+      //   @include if-device(phone) {
+      //     font-size: 12px;
+      //     color: #4a5568;
+      //     top: -8px;
+      //   }
+    }
+  }
+
+  &.open {
+    border-color: #a6acb9;
+
+    .arrow {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .label {
+      font-size: 14px;
+      top: -9px;
+      background: #fff;
+      padding: 0 4px;
+      left: 12px;
+
+      //   @include if-device(phone) {
+      //     font-size: 12px;
+      //     color: #4a5568;
+      //     top: -8px;
+      //   }
+    }
+  }
+
+  .label {
+    color: #4a5568;
+    font-size: 14px;
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    pointer-events: none;
+    transition-property: left, top;
+    transition-timing-function: ease-out;
+    transition-duration: 0.2s;
+    line-height: initial;
+
+    // @include if-device(phone) {
+    //   font-size: 14px;
+    //   top: 9px;
+    // }
+  }
+
+  .arrow {
+    width: 9px;
+    height: 9px;
+    border-width: 0 2px 2px 0;
+    margin-right: 8px;
+    border-style: solid;
+    border-color: #7c8698;
+    transform: translateY(-2px) rotate(45deg);
+  }
+}
+
+.options {
+  user-select: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  z-index: 1;
+  text-align: left;
+  background-color: #fefefe;
+  box-shadow: 0px 4px 10px rgb(9 30 66 / 10%);
+  border-radius: 8px;
+  pointer-events: none;
+  display: none;
+
+  &__selected {
+    pointer-events: all;
+    display: block;
+  }
+
+  .container {
+    max-height: 124px;
+    padding-right: 8px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      appearance: none;
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background-color: #4a5568;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #4a5568;
+      border-radius: 3px;
+    }
+  }
+
+  .item {
+    padding: 0 12px;
+    cursor: pointer;
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 40px;
+    height: 40px;
+    border-radius: 8px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+.darkTheme {
+  background-color: #4a5568;
+  border: 2px solid #7c8698;
+  color: #fff;
+
+  & > span:not(:empty) {
+    & + .label {
+      display: none;
+    }
+  }
+
+  &:focus,
+  &:active {
+    border-color: #fff;
+    outline: 0;
+  }
+
+  //   @include if-device(phone) {
+  //     border-width: 1px;
+  //   }
+
+  &.open {
+    border-color: #fff;
+
+    & > .label {
+      background: none;
+      padding: 0;
+      font-size: 14px;
+      left: 14px;
+      top: 14px;
+
+      //   @include if-device(phone) {
+      //     font-size: 14px;
+      //     top: 9px;
+      //   }
+    }
+  }
+
+  .options {
+    background-color: #53627b;
+    box-shadow: 0px 2px 8px rgb(9 30 66 / 4%), 0px 12px 32px rgb(9 30 66 / 12%);
+
+    .item {
+      color: #fff;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #273959;
+      }
+    }
+  }
+}

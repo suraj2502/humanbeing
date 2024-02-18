@@ -1,0 +1,89 @@
+.callbackformContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: #1a202c;
+  text-align: left;
+}
+
+.phoneInputCustom {
+  border: 1px solid #dfe1e6;
+  display: flex;
+  padding: 0px 8px;
+  background: #fff;
+  border-radius: 8px;
+  height: 44px;
+  overflow: hidden;
+  align-items: center;
+  width: calc(100% - 185px);
+  margin-top: 32px;
+
+  input {
+    border: none;
+    outline: none;
+  }
+}
+
+.error {
+  margin-top: 2px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: #e95454;
+  text-align: left;
+  left: 0;
+}
+
+.customInput {
+  width: calc(100% - 170px);
+  margin-top: 12px;
+}
+
+.submit {
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  padding: 12px 24px;
+  background: #4ea1d0;
+  width: calc(100% - 170px);
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: auto;
+  outline: none;
+  border: none;
+  position: absolute;
+  bottom: 20px;
+}
+
+.submitDisable {
+  cursor: not-allowed;
+  background: #dfe1e6;
+  pointer-events: none;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  padding: 12px 24px;
+
+  width: calc(100% - 170px);
+  border-radius: 8px;
+  text-decoration: none;
+
+  margin-top: auto;
+  outline: none;
+  border: none;
+}

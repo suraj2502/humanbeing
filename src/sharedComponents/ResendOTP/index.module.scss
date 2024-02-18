@@ -1,0 +1,24 @@
+// @import 'styles/breakpoints';
+
+.main {
+  display: block;
+
+  .timer {
+    min-width: 200px;
+    color: #b3b3b3;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .otp {
+    font-size: 12px;
+    line-height: 18px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    color: #2badf8;
+    margin-right: 12px;
+  }
+}

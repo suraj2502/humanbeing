@@ -1,0 +1,20 @@
+.optionalWrapper {
+  &__title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: #1a202c;
+    text-align: left;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    // gap: 12px;
+    margin-top: 12px;
+
+    &__field {
+      margin-top: 12px;
+    }
+  }
+}

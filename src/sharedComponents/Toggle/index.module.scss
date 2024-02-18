@@ -1,0 +1,44 @@
+// @import "styles/breakpoints";
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 15px;
+}
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+.toggle-switch .switch {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 15px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s ease;
+}
+.toggle-switch .switch::before {
+  position: absolute;
+  content: "";
+  left: 1.5px;
+  top: 10.5%;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+
+  //   @include if-device(phone) {
+  //     left: 1px;
+  //   }
+}
+.toggle-switch input[type="checkbox"]:checked + .switch::before {
+  transform: translateX(15px);
+  background-color: #fff;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch {
+  background-color: #028d5e;
+}
