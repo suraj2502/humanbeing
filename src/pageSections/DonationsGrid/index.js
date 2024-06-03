@@ -2,6 +2,7 @@ import React from "react";
 import ColorTitle from "@/sharedComponents/ColorTitle";
 import Styles from "./index.module.scss";
 import DonationCard from "./DonationCard";
+import Link from "next/link";
 
 function DonationsGrid({ data, name }) {
   return (
@@ -20,7 +21,7 @@ function DonationsGrid({ data, name }) {
       </div>
       {data.donations && data.donations.length > 1 && (
         <div className={Styles.container__viewAll}>
-          <a href="/donate">VIEW ALL</a>
+          <Link href="/donate">VIEW ALL</Link>
         </div>
       )}
     </section>

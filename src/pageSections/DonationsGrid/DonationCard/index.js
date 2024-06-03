@@ -88,7 +88,7 @@ function DonationCard({ item }) {
               </IconWrapper> */}
               <Exclamation />
               <div>
-                <span>This campaign's KYC is pending</span>
+                <span>{"This campaign's KYC is pending"}</span>
               </div>
             </>
           )}

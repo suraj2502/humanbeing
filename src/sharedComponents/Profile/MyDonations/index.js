@@ -53,8 +53,7 @@ function MyDonations() {
       ) : (
         <>
           <div>
-            You haven't made any donations, explore our fundraisers by clicking
-            on the button below
+           { "You haven't made any donations, explore our fundraisers by clicking on the button below"}
           </div>
           <Button
             hrefLink="/donate"
