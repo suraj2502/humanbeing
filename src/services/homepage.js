@@ -1,6 +1,6 @@
 export const getAllCampaigns = (payload) => {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-  return fetch("httpss://altruvo.org/api/campaign/get-campaigns-list", {
+  return fetch("https://altruvo.org/api/campaign/get-campaigns-list", {
     // Adding method type
     method: "POST",
 
