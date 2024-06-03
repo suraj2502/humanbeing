@@ -8,12 +8,17 @@ const Input = ({
   value,
   handleBlur,
   errorMsg,
+  isLongInput = false,
   ...rest
 }) => {
   return (
     <>
       <div className={classNames(Styles.inputOutline, customClass)}>
-        <input onBlur={handleBlur} type="text" {...rest} value={value} />
+        {isLongInput ? (
+          <textarea onBlur={handleBlur} type="text" {...rest} value={value} />
+        ) : (
+          <input onBlur={handleBlur} type="text" {...rest} value={value} />
+        )}
         <span className={Styles.inputOutline__border} />
         <label>{label}</label>
       </div>

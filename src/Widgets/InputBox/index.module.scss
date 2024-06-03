@@ -2,7 +2,8 @@
   width: 100%;
   position: relative;
   display: flex;
-  input {
+  input,
+  textarea {
     font-size: 14px;
     padding: 12px 12px 7px;
     display: block;
@@ -37,6 +38,10 @@
       top: 0px;
       pointer-events: none;
       transition: all 0.1s ease;
+    }
+
+    textarea {
+      width: 100%;
     }
   }
 

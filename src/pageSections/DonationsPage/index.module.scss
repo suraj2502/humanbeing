@@ -1,0 +1,25 @@
+@import "../../styles//breakpoints";
+
+.wrapper {
+  //   padding: 0px 50px 0;
+  margin-top: 200px;
+  padding-bottom: 50px;
+
+  @include if-device(phone) {
+    margin-top: 150px;
+  }
+
+  &__grid {
+    padding: 0px 50px;
+    display: grid;
+    grid-gap: 40px;
+    width: calc(100% - 100px);
+    // grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+
+    @include if-device(phone) {
+        padding: 0px 20px;
+        width: calc(100% - 40px);
+      }
+  }
+}

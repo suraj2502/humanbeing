@@ -18,6 +18,11 @@ function DonationsGrid({ data, name }) {
         <DonationCard />
         <DonationCard /> */}
       </div>
+      {data.donations && data.donations.length > 1 && (
+        <div className={Styles.container__viewAll}>
+          <a href="/donate">VIEW ALL</a>
+        </div>
+      )}
     </section>
   );
 }

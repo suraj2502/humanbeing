@@ -4,11 +4,15 @@ import ColorTitle from "@/sharedComponents/ColorTitle";
 import Carousel from "@/Widgets/Carousel";
 import Image from "next/image";
 
-function Reviews({ data, name }) {
+function Reviews({ data, name, isMobile }) {
   return (
     <section id={name} className={Styles.container}>
       <ColorTitle text={data.title} />
-      <Carousel navigation={true} slidesToShow={3}>
+      <Carousel
+        // navigation={isMobile ? false : true}
+        isMobile={isMobile}
+        slidesToShow={isMobile ? 1.1 : 3}
+      >
         {data?.reviews?.map((item, idx) => {
           return (
             <div key={idx} className={Styles.container__card}>

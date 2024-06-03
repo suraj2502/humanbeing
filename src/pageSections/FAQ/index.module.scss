@@ -1,3 +1,9 @@
+@import "../../styles/breakpoints";
+
 .container {
   padding: 40px 50px 0;
+
+  @include if-device(phone) {
+    padding: 20px 32px 0;
+  }
 }

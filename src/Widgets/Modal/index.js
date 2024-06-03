@@ -10,6 +10,7 @@ const Modal = ({
   closeModal,
   showCloseButton = true,
   customClassName,
+  width,
 }) => {
   useEffect(() => {
     if (isOpen) document.body.style.overflow = "hidden";
@@ -27,6 +28,7 @@ const Modal = ({
 
   const containerClass = isOpen ? "container__visible" : "container";
   const modalClassClass = isOpen ? "modal__visible" : "modal";
+  console.log('customclass', customClassName)
   return createPortal(
     <>
       <div className={Styles.wrapper}>
@@ -35,6 +37,8 @@ const Modal = ({
             <div className={Styles.modal__mask}></div>
             <div
               className={classNames(Styles[modalClassClass], customClassName)}
+              style={customClassName}
+              width={width}
             >
               {children}
             </div>

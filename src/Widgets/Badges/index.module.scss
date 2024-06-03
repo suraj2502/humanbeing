@@ -1,0 +1,33 @@
+.badge {
+  border-radius: 4px;
+  white-space: nowrap;
+  background: #fff;
+  display: flex;
+  padding: 10px 15px;
+  //   height: 42px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  border: 1px solid black;
+}
+
+.activeBadge {
+  border-radius: 4px;
+  white-space: nowrap;
+  background: #4ea1d0;
+  display: flex;
+  padding: 10px 15px;
+  //   height: 42px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  border: 1px solid white;
+}

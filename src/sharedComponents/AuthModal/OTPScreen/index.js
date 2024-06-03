@@ -6,6 +6,8 @@ import Styles from "./index.module.scss";
 // import ResendOTP from "../../ResendOTP";
 import OTPInput from "@/sharedComponents/OTPInput";
 import ResendOTP from "@/sharedComponents/ResendOTP";
+import { sendOtp } from "@/services/login";
+import { parsePhoneNumber } from "react-phone-number-input";
 // import { resendOtp } from "../../../../apis/accounts";
 // import logger, { LOG_TYPES } from "../../../../utils/logger";
 // import { SINGLE_FORM_AUTH_MODAL } from "../../../../utils/strings";
@@ -31,6 +33,7 @@ function OTPScreen({
   //   section,
   //   setAutoFocusPhone,
   handleCta,
+  showToggle,
 }) {
   //   const { registrationId: regId } = useSelector((state) => state.user);
   //   const editRef = useRef(false);
@@ -92,6 +95,12 @@ function OTPScreen({
   };
 
   const handleResendOTP = () => {
+    sendOtp({
+      phoneNumber: parsePhoneNumber(phone).nationalNumber,
+      countryCode: parsePhoneNumber(phone).countryCallingCode,
+      isLogin: true,
+      isNgo: showToggle,
+    });
     // track(({ Accounts }) =>
     //   Accounts.resendOtpClicked({
     //     screen: "OTP",
@@ -112,7 +121,7 @@ function OTPScreen({
   return (
     <>
       <div className={Styles.otpWrapper}>
-        {/* <span className={Styles.otpWrapper__title}>We've sent an OTP on</span> */}
+        <span className={Styles.otpWrapper__title}>We've sent an OTP on</span>
         <div className={Styles.otpWrapper__editContainer}>
           <span className={Styles.otpWrapper__editContainer__phone}>
             {phone}

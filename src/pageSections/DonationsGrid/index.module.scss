@@ -1,5 +1,11 @@
+@import "../../styles//breakpoints";
+
 .container {
   padding: 40px 50px 0;
+
+  @include if-device(phone) {
+    padding: 20px 20px 0;
+  }
 
   &__grid {
     display: grid;
@@ -7,5 +13,18 @@
     width: 100%;
     // grid-template-columns: auto auto auto;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  }
+
+  &__viewAll {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #4ea1d0;
+    text-transform: capitalize;
+    text-decoration: underline;
+    span {
+      cursor: pointer;
+    }
+    // width: fit-content;
   }
 }

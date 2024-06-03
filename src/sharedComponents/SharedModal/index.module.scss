@@ -1,0 +1,52 @@
+.shareModalContainer {
+  padding: 24px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  color: #4a5568;
+}
+
+.subTitle {
+  margin: 16px 0 24px 0;
+  font-weight: 450;
+  font-size: 18px;
+  line-height: 31px;
+  color: #1a202c;
+}
+
+.closeButton {
+  position: fixed;
+  cursor: pointer;
+  top: 24px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.closeButton:before,
+.closeButton:after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 30px;
+  margin-top: -1px;
+  background: #4a5568;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+
+.closeButton:before {
+  transform: rotate(45deg);
+}
+
+.closeButton:after {
+  transform: rotate(-45deg);
+}

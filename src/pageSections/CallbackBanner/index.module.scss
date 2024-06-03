@@ -1,14 +1,26 @@
+@import "../../styles//breakpoints";
+
 .container {
   height: auto;
   background: #4ea1d0;
-  padding: 32px 50px;
+  padding: 32px 0px;
   margin-top: 40px;
-  display: flex;
-  flex-direction: row;
-  color: #fff;
-  position: relative;
-  align-items: center;
+  width: 100vw;
 
+  .innerContainer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+
+    @include if-device(phone) {
+      flex-direction: column;
+    }
+  }
   &__btn {
     color: #4ea1d0;
     text-align: center;
@@ -17,12 +29,26 @@
     font-weight: 500;
     line-height: normal;
     padding: 12px 24px;
+    width: fit-content;
     border-radius: 28px;
     background: #fff;
     width: fit-content;
     text-decoration: none;
     cursor: pointer;
-    position: absolute;
-    right: 50px;
+    border: none;
+
+    @include if-device(phone) {
+      width: 100%;
+    }
   }
 }
+
+// height: auto;
+// background: #4ea1d0;
+// padding: 32px 50px;
+// margin-top: 40px;
+// display: flex;
+// flex-direction: row;
+// color: #fff;
+// align-items: center;
+// width: 100vw;

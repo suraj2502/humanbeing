@@ -35,34 +35,41 @@ function Carousel({
   navigation,
   pagination,
   children,
+  isMobile = false,
 }) {
   return (
     // <div className={Styles.carousel}>
     //   {navigation && <div>Previous</div>}
     <NukaCarousel
       style={{ position: "relative" }}
+      navigation={navigation}
       slidesToShow={slidesToShow}
       cellSpacing={cellSpacing}
       renderBottomCenterControls={false}
-      renderCenterLeftControls={({ previousSlide, currentSlide }) => (
-        <div
-          className={currentSlide === 0 ? "" : Styles.customPrevious}
-          onClick={previousSlide}
-        ></div>
-      )}
-      renderCenterRightControls={({
-        nextSlide,
-        currentSlide,
-        slideCount,
-        slidesToShow,
-      }) => (
-        <div
-          className={
-            currentSlide + slidesToShow === slideCount ? "" : Styles.customNext
-          }
-          onClick={nextSlide}
-        ></div>
-      )}
+      renderCenterLeftControls={
+        isMobile
+          ? null
+          : ({ previousSlide, currentSlide }) => (
+              <div
+                className={currentSlide === 0 ? "" : Styles.customPrevious}
+                onClick={previousSlide}
+              ></div>
+            )
+      }
+      renderCenterRightControls={
+        isMobile
+          ? null
+          : ({ nextSlide, currentSlide, slideCount, slidesToShow }) => (
+              <div
+                className={
+                  currentSlide + slidesToShow === slideCount
+                    ? ""
+                    : Styles.customNext
+                }
+                onClick={nextSlide}
+              ></div>
+            )
+      }
     >
       {children}
     </NukaCarousel>

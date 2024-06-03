@@ -2,26 +2,405 @@
 // import Image from "next/image";
 // import { Inter } from "next/font/google";
 // import styles from "@/styles/Home.module.css";
+import Header from "@/sharedComponents/Header";
+import { getAllCampaigns } from "@/services/homepage";
+import detectDevice from "@/utils/detectDevice";
+import DonationsPage from "@/pageSections/DonationsPage";
 
 // const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ data }) {
+export default function Home({ data, isMobile }) {
   console.log("data", data);
-  return <div>domnate</div>;
+  return (
+    <div id="root">
+      <Header isMobile={isMobile} />
+      <DonationsPage data={data} isMobile={isMobile} />
+      {/* <Footer /> */}
+    </div>
+  );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const userAgent = context.req.headers["user-agent"];
+  // console.log("userAgent--", detectDevice(userAgent));
+  const isMobile = detectDevice(userAgent);
   // Fetch data from external API
-  const res = [
-    {
-      title: "comp 1",
-    },
-    {
-      title: "comp2",
-    },
-  ];
-  const data = res;
+  // let donationsMock = [
+  //   {
+  //     campaignCode: "160000000001",
+  //     campaignName: "Test",
+  //     description: "Test",
+  //     story: "",
+  //     campaignSource: "",
+  //     campaignCategory: "Education",
+  //     campaignType: "",
+  //     status: "Active",
+  //     campaignStartDate: "2024-04-29T00:00:00+05:30",
+  //     campaignEndDate: "2024-05-02T00:00:00+05:30",
+  //     campaignGoal: "",
+  //     consolidatedAmountRaised: 0,
+  //     targetAmount: 10000,
+  //     campaignImages: [
+  //       "https://cimages.milaap.org/milaap/image/upload/c_fill,h_452,w_603/v1709715941/production/images/campaign/761952/eon1zt5id1zdjmolewrj_1709715964.jpg",
+  //     ],
+  //     supportingDocuments: [
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //     ],
+  //     kycDocuments: [],
+  //     campaignVideo: "",
+  //     campaignLocation: "",
+  //     currency: "INR",
+  //     progressPercentage: 0,
+  //     inrTaxExempt: false,
+  //     coverImageUrl: "",
+  //     allowListingOnAltruvo: false,
+  //     createdByUser: {
+  //       userCode: "150000000006",
+  //       fullName: "AJ ",
+  //       phoneNumber: "91-8840392169",
+  //     },
+  //     createdFor: "",
+  //     createdOn: "2024-04-28T09:38:09+05:30",
+  //     modifiedOn: "2024-04-28T09:38:09+05:30",
+  //     campaignUpdatedBy: "",
+  //     campaignIsVerified: false,
+  //     campaignIsApproved: false,
+  //     isExpired: false,
+  //     isClosed: false,
+  //     totalDonationsCount: 0,
+  //     isActive: true,
+  //     pocName: "",
+  //     pocPhoneNumber: "-",
+  //     patientRelationCategoryWithCreator: "Myself",
+  //     patientRelationTypeWithCreator: "",
+  //     createdForDob: "",
+  //   },
+  //   {
+  //     campaignCode: "160000000001",
+  //     campaignName: "Test",
+  //     description: "Test",
+  //     story: "",
+  //     campaignSource: "",
+  //     campaignCategory: "Education",
+  //     campaignType: "",
+  //     status: "Active",
+  //     campaignStartDate: "2024-04-29T00:00:00+05:30",
+  //     campaignEndDate: "2024-05-02T00:00:00+05:30",
+  //     campaignGoal: "",
+  //     consolidatedAmountRaised: 0,
+  //     targetAmount: 10000,
+  //     campaignImages: [
+  //       "https://cimages.milaap.org/milaap/image/upload/c_fill,h_452,w_603/v1709715941/production/images/campaign/761952/eon1zt5id1zdjmolewrj_1709715964.jpg",
+  //     ],
+  //     supportingDocuments: [
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //     ],
+  //     kycDocuments: [],
+  //     campaignVideo: "",
+  //     campaignLocation: "",
+  //     currency: "INR",
+  //     progressPercentage: 0,
+  //     inrTaxExempt: false,
+  //     coverImageUrl: "",
+  //     allowListingOnAltruvo: false,
+  //     createdByUser: {
+  //       userCode: "150000000006",
+  //       fullName: "AJ ",
+  //       phoneNumber: "91-8840392169",
+  //     },
+  //     createdFor: "",
+  //     createdOn: "2024-04-28T09:38:09+05:30",
+  //     modifiedOn: "2024-04-28T09:38:09+05:30",
+  //     campaignUpdatedBy: "",
+  //     campaignIsVerified: false,
+  //     campaignIsApproved: false,
+  //     isExpired: false,
+  //     isClosed: false,
+  //     totalDonationsCount: 0,
+  //     isActive: true,
+  //     pocName: "",
+  //     pocPhoneNumber: "-",
+  //     patientRelationCategoryWithCreator: "Myself",
+  //     patientRelationTypeWithCreator: "",
+  //     createdForDob: "",
+  //   },
+  //   {
+  //     campaignCode: "160000000001",
+  //     campaignName: "Test",
+  //     description: "Test",
+  //     story: "",
+  //     campaignSource: "",
+  //     campaignCategory: "Education",
+  //     campaignType: "",
+  //     status: "Active",
+  //     campaignStartDate: "2024-04-29T00:00:00+05:30",
+  //     campaignEndDate: "2024-05-02T00:00:00+05:30",
+  //     campaignGoal: "",
+  //     consolidatedAmountRaised: 0,
+  //     targetAmount: 10000,
+  //     campaignImages: [
+  //       "https://cimages.milaap.org/milaap/image/upload/c_fill,h_452,w_603/v1709715941/production/images/campaign/761952/eon1zt5id1zdjmolewrj_1709715964.jpg",
+  //     ],
+  //     supportingDocuments: [
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //     ],
+  //     kycDocuments: [],
+  //     campaignVideo: "",
+  //     campaignLocation: "",
+  //     currency: "INR",
+  //     progressPercentage: 0,
+  //     inrTaxExempt: false,
+  //     coverImageUrl: "",
+  //     allowListingOnAltruvo: false,
+  //     createdByUser: {
+  //       userCode: "150000000006",
+  //       fullName: "AJ ",
+  //       phoneNumber: "91-8840392169",
+  //     },
+  //     createdFor: "",
+  //     createdOn: "2024-04-28T09:38:09+05:30",
+  //     modifiedOn: "2024-04-28T09:38:09+05:30",
+  //     campaignUpdatedBy: "",
+  //     campaignIsVerified: false,
+  //     campaignIsApproved: false,
+  //     isExpired: false,
+  //     isClosed: false,
+  //     totalDonationsCount: 0,
+  //     isActive: true,
+  //     pocName: "",
+  //     pocPhoneNumber: "-",
+  //     patientRelationCategoryWithCreator: "Myself",
+  //     patientRelationTypeWithCreator: "",
+  //     createdForDob: "",
+  //   },
+  //   {
+  //     campaignCode: "160000000001",
+  //     campaignName: "Test",
+  //     description: "Test",
+  //     story: "",
+  //     campaignSource: "",
+  //     campaignCategory: "Education",
+  //     campaignType: "",
+  //     status: "Active",
+  //     campaignStartDate: "2024-04-29T00:00:00+05:30",
+  //     campaignEndDate: "2024-05-02T00:00:00+05:30",
+  //     campaignGoal: "",
+  //     consolidatedAmountRaised: 0,
+  //     targetAmount: 10000,
+  //     campaignImages: [
+  //       "https://cimages.milaap.org/milaap/image/upload/c_fill,h_452,w_603/v1709715941/production/images/campaign/761952/eon1zt5id1zdjmolewrj_1709715964.jpg",
+  //     ],
+  //     supportingDocuments: [
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //     ],
+  //     kycDocuments: [],
+  //     campaignVideo: "",
+  //     campaignLocation: "",
+  //     currency: "INR",
+  //     progressPercentage: 0,
+  //     inrTaxExempt: false,
+  //     coverImageUrl: "",
+  //     allowListingOnAltruvo: false,
+  //     createdByUser: {
+  //       userCode: "150000000006",
+  //       fullName: "AJ ",
+  //       phoneNumber: "91-8840392169",
+  //     },
+  //     createdFor: "",
+  //     createdOn: "2024-04-28T09:38:09+05:30",
+  //     modifiedOn: "2024-04-28T09:38:09+05:30",
+  //     campaignUpdatedBy: "",
+  //     campaignIsVerified: false,
+  //     campaignIsApproved: false,
+  //     isExpired: false,
+  //     isClosed: false,
+  //     totalDonationsCount: 0,
+  //     isActive: true,
+  //     pocName: "",
+  //     pocPhoneNumber: "-",
+  //     patientRelationCategoryWithCreator: "Myself",
+  //     patientRelationTypeWithCreator: "",
+  //     createdForDob: "",
+  //   },
+  //   {
+  //     campaignCode: "160000000001",
+  //     campaignName: "Test",
+  //     description: "Test",
+  //     story: "",
+  //     campaignSource: "",
+  //     campaignCategory: "Education",
+  //     campaignType: "",
+  //     status: "Active",
+  //     campaignStartDate: "2024-04-29T00:00:00+05:30",
+  //     campaignEndDate: "2024-05-02T00:00:00+05:30",
+  //     campaignGoal: "",
+  //     consolidatedAmountRaised: 0,
+  //     targetAmount: 10000,
+  //     campaignImages: [
+  //       "https://cimages.milaap.org/milaap/image/upload/c_fill,h_452,w_603/v1709715941/production/images/campaign/761952/eon1zt5id1zdjmolewrj_1709715964.jpg",
+  //     ],
+  //     supportingDocuments: [
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //     ],
+  //     kycDocuments: [],
+  //     campaignVideo: "",
+  //     campaignLocation: "",
+  //     currency: "INR",
+  //     progressPercentage: 0,
+  //     inrTaxExempt: false,
+  //     coverImageUrl: "",
+  //     allowListingOnAltruvo: false,
+  //     createdByUser: {
+  //       userCode: "150000000006",
+  //       fullName: "AJ ",
+  //       phoneNumber: "91-8840392169",
+  //     },
+  //     createdFor: "",
+  //     createdOn: "2024-04-28T09:38:09+05:30",
+  //     modifiedOn: "2024-04-28T09:38:09+05:30",
+  //     campaignUpdatedBy: "",
+  //     campaignIsVerified: false,
+  //     campaignIsApproved: false,
+  //     isExpired: false,
+  //     isClosed: false,
+  //     totalDonationsCount: 0,
+  //     isActive: true,
+  //     pocName: "",
+  //     pocPhoneNumber: "-",
+  //     patientRelationCategoryWithCreator: "Myself",
+  //     patientRelationTypeWithCreator: "",
+  //     createdForDob: "",
+  //   },
+  //   {
+  //     campaignCode: "160000000001",
+  //     campaignName: "Test",
+  //     description: "Test",
+  //     story: "",
+  //     campaignSource: "",
+  //     campaignCategory: "Education",
+  //     campaignType: "",
+  //     status: "Active",
+  //     campaignStartDate: "2024-04-29T00:00:00+05:30",
+  //     campaignEndDate: "2024-05-02T00:00:00+05:30",
+  //     campaignGoal: "",
+  //     consolidatedAmountRaised: 0,
+  //     targetAmount: 10000,
+  //     campaignImages: [
+  //       "https://cimages.milaap.org/milaap/image/upload/c_fill,h_452,w_603/v1709715941/production/images/campaign/761952/eon1zt5id1zdjmolewrj_1709715964.jpg",
+  //     ],
+  //     supportingDocuments: [
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //     ],
+  //     kycDocuments: [],
+  //     campaignVideo: "",
+  //     campaignLocation: "",
+  //     currency: "INR",
+  //     progressPercentage: 0,
+  //     inrTaxExempt: false,
+  //     coverImageUrl: "",
+  //     allowListingOnAltruvo: false,
+  //     createdByUser: {
+  //       userCode: "150000000006",
+  //       fullName: "AJ ",
+  //       phoneNumber: "91-8840392169",
+  //     },
+  //     createdFor: "",
+  //     createdOn: "2024-04-28T09:38:09+05:30",
+  //     modifiedOn: "2024-04-28T09:38:09+05:30",
+  //     campaignUpdatedBy: "",
+  //     campaignIsVerified: false,
+  //     campaignIsApproved: false,
+  //     isExpired: false,
+  //     isClosed: false,
+  //     totalDonationsCount: 0,
+  //     isActive: true,
+  //     pocName: "",
+  //     pocPhoneNumber: "-",
+  //     patientRelationCategoryWithCreator: "Myself",
+  //     patientRelationTypeWithCreator: "",
+  //     createdForDob: "",
+  //   },
+  //   {
+  //     campaignCode: "160000000001",
+  //     campaignName: "Test",
+  //     description: "Test",
+  //     story: "",
+  //     campaignSource: "",
+  //     campaignCategory: "Education",
+  //     campaignType: "",
+  //     status: "Active",
+  //     campaignStartDate: "2024-04-29T00:00:00+05:30",
+  //     campaignEndDate: "2024-05-02T00:00:00+05:30",
+  //     campaignGoal: "",
+  //     consolidatedAmountRaised: 0,
+  //     targetAmount: 10000,
+  //     campaignImages: [
+  //       "https://cimages.milaap.org/milaap/image/upload/c_fill,h_452,w_603/v1709715941/production/images/campaign/761952/eon1zt5id1zdjmolewrj_1709715964.jpg",
+  //     ],
+  //     supportingDocuments: [
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //       "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0",
+  //     ],
+  //     kycDocuments: [],
+  //     campaignVideo: "",
+  //     campaignLocation: "",
+  //     currency: "INR",
+  //     progressPercentage: 0,
+  //     inrTaxExempt: false,
+  //     coverImageUrl: "",
+  //     allowListingOnAltruvo: false,
+  //     createdByUser: {
+  //       userCode: "150000000006",
+  //       fullName: "AJ ",
+  //       phoneNumber: "91-8840392169",
+  //     },
+  //     createdFor: "",
+  //     createdOn: "2024-04-28T09:38:09+05:30",
+  //     modifiedOn: "2024-04-28T09:38:09+05:30",
+  //     campaignUpdatedBy: "",
+  //     campaignIsVerified: false,
+  //     campaignIsApproved: false,
+  //     isExpired: false,
+  //     isClosed: false,
+  //     totalDonationsCount: 0,
+  //     isActive: true,
+  //     pocName: "",
+  //     pocPhoneNumber: "-",
+  //     patientRelationCategoryWithCreator: "Myself",
+  //     patientRelationTypeWithCreator: "",
+  //     createdForDob: "",
+  //   },
+  // ];
+  let data = {};
+
+  await getAllCampaigns({
+    pageSize: 1,
+    offset: 0,
+  })
+    .then((res) => res.json())
+    .then((json) => {
+      if (json.success) {
+        data = {
+          donations: json.campaignListingDetail,
+          totalCount: json.totalCampaignCount,
+        };
+      } else {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/404",
+          },
+          props: {},
+        };
+      }
+    });
 
   // Pass data to the page via props
-  return { props: { data } };
+  return { props: { data, isMobile } };
 }

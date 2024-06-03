@@ -1,0 +1,30 @@
+@import "../../../styles/breakpoints";
+
+.wrapper {
+  width: calc(100% - 40px);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 8px;
+  background: #4ea1d0;
+  display: flex;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  width: 300px;
+
+  @include if-device(phone) {
+    width: 100%;
+  }
+}

@@ -1,5 +1,11 @@
+@import "../../styles//breakpoints";
+
 .container {
   padding: 40px 50px 0;
+
+  @include if-device(phone) {
+    padding: 20px 20px 0;
+  }
 
   &__card {
     padding: 15px 30px;

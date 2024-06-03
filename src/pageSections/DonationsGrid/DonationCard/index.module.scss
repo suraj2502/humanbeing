@@ -1,6 +1,7 @@
 .card {
   width: 100%;
   max-width: 329px;
+  position: relative;
 
   &__img {
     height: 210px;
@@ -120,12 +121,12 @@
       font-weight: 400;
       line-height: 24px; /* 171.429% */
       gap: 12px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      // white-space: nowrap;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
 
       span {
-       font-weight: 600;
+        font-weight: 600;
       }
     }
 
@@ -142,6 +143,54 @@
       font-size: 14px;
       font-weight: 400;
       line-height: normal;
+      width: 100%;
     }
   }
+}
+
+.ribbonContainer {
+  position: absolute;
+  top: 10px;
+  left: -14px;
+  background: linear-gradient(110.83deg, #82c1e6 15.83%, #3e91c1 97.46%);
+  border-radius: 0px 4px 4px 0px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  font-weight: 500;
+  color: #fff;
+
+  // @include if-device(phone) {
+  //   left: -12px;
+  // }
+}
+
+.ribbonText {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 4px 8px 4px 14px;
+
+  // @include if-device(phone) {
+  //   font-size: 12px;
+  //   line-height: 12px;
+  // }
+}
+
+.ribbonText::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 12px solid #4ea1d0;
+  border-left: 14px solid transparent;
+  top: 100%;
+  left: 0px;
+
+  // @include if-device(phone) {
+  //   border-top: 10px solid #8c1212;
+  //   border-left: 12px solid transparent;
+  // }
 }

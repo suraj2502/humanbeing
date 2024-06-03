@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Styles from "./index.module.scss";
+import Toggle from "@/sharedComponents/Toggle";
 import "react-phone-number-input/style.css";
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import { isValidPhoneNumber } from "react-phone-number-input";
+import PhoneInputCommon from "@/sharedComponents/PhoneInput";
 
-function PhoneScreen({ setDisableCta, phoneInput, setPhoneInput }) {
+function PhoneScreen({
+  setDisableCta,
+  phoneInput,
+  setPhoneInput,
+  showToggle,
+  setShowToggle,
+}) {
   const [phoneError, setPhoneError] = useState("");
 
   const phoneHandleBlur = () => {
@@ -28,7 +36,14 @@ function PhoneScreen({ setDisableCta, phoneInput, setPhoneInput }) {
   return (
     <>
       <span className={Styles.title}>Welcome! Sign Up or Login</span>
-      <PhoneInput
+      <PhoneInputCommon
+        phoneInput={phoneInput}
+        setPhoneInput={setPhoneInput}
+        phoneHandleBlur={phoneHandleBlur}
+        customClass={Styles.phoneInputCustom}
+        phoneError={phoneError}
+      />
+      {/* <PhoneInput
         placeholder="Enter phone number"
         value={phoneInput}
         defaultCountry="IN"
@@ -56,7 +71,11 @@ function PhoneScreen({ setDisableCta, phoneInput, setPhoneInput }) {
         // }}
         // inputComponent={getPhoneInputBox}
       />
-      {phoneError && <p className={Styles.error}>{phoneError}</p>}
+      {phoneError && <p className={Styles.error}>{phoneError}</p>} */}
+      <div className={Styles.isNgo}>
+        <span>Are you a NGO ?</span>
+        <Toggle showToggle={showToggle} setShowToggle={setShowToggle} />
+      </div>
     </>
   );
 }

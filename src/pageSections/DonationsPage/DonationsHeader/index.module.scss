@@ -1,0 +1,33 @@
+@import "../../../styles/breakpoints";
+
+.container {
+  display: flex;
+  width: calc(100% - 100px);
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 90px;
+  z-index: 2;
+  padding: 0px 50px;
+  //   background: #eff2f2;
+  background: black;
+  color: #4ea1d0;
+
+  @include if-device(phone) {
+    padding: 0px 10px;
+    top: 60px;
+    width: calc(100% - 20px);
+
+    h1 {
+      font-size: 14px;
+    }
+  }
+
+  &__btn {
+    text-decoration: underline;
+    cursor: pointer;
+    &__disabled {
+      visibility: hidden;
+    }
+  }
+}

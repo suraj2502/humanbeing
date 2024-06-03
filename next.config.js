@@ -10,6 +10,12 @@ const nextConfig = {
         // port: '',
         // pathname: '/account123/**',
       },
+      {
+        protocol: "https",
+        hostname: "cimages.milaap.org",
+        // port: '',
+        // pathname: '/account123/**',
+      },
     ],
   },
 };

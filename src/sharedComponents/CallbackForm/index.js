@@ -36,7 +36,29 @@ const INPUT_DATA = {
   },
 };
 
-function CallbackForm({ isOpen, setIsOpen }) {
+const desktopStyle = {
+  background: "white",
+  borderRadius: 10,
+  height: "80%",
+  width: "auto",
+  padding: "0px",
+};
+
+const mobileStyle = {
+  border: "none",
+  inset: 0,
+  padding: 0,
+  borderRadius: 0,
+  height: "100vh",
+  width: "100vw",
+  overflow: "hidden",
+  transform: "translate(0, 0)",
+  left: "0",
+  top: "0",
+  position: "fixed",
+};
+
+function CallbackForm({ isOpen, setIsOpen, isMobile }) {
   // console.log("inside callback form");
   // const [nameInput, setNameInput] = useState("");
   // const [nameError, setNameError] = useState("");
@@ -136,7 +158,7 @@ function CallbackForm({ isOpen, setIsOpen }) {
       console.log("phoneInput", parsePhoneNumber(phoneInput));
       console.log("nameInput", nameInput);
       console.log("emailInput", emailInput);
-      fetch("http://altruvo.org/api/store-visitor-data", {
+      fetch("https://altruvo.org/api/store-visitor-data", {
         // Adding method type
         method: "POST",
 
@@ -144,10 +166,12 @@ function CallbackForm({ isOpen, setIsOpen }) {
         body: JSON.stringify({
           fullName: nameInput,
           email: emailInput,
-          phoneDetails: [{
-            countryCode: parsePhoneNumber(phoneInput).countryCallingCode,
-            phoneNumber: parsePhoneNumber(phoneInput).nationalNumber,
-          }],
+          phoneDetails: [
+            {
+              countryCode: parsePhoneNumber(phoneInput).countryCallingCode,
+              phoneNumber: parsePhoneNumber(phoneInput).nationalNumber,
+            },
+          ],
         }),
 
         // Adding headers to the request
@@ -165,7 +189,11 @@ function CallbackForm({ isOpen, setIsOpen }) {
   };
 
   return (
-    <Modal isOpen={isOpen} closeModal={() => setIsOpen(false)}>
+    <Modal
+      customClassName={isMobile ? mobileStyle : desktopStyle}
+      isOpen={isOpen}
+      closeModal={() => setIsOpen(false)}
+    >
       <div className={Styles.callbackformContainer}>
         <span className={Styles.title}>
           Please fill in the details below and we will reach out to you.

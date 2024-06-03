@@ -1,9 +1,15 @@
+@import "../../styles//breakpoints";
+
 .callbackformContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   height: 100%;
+
+  @include if-device(phone) {
+    margin-top: 60px;
+  }
 }
 
 .title {
@@ -12,6 +18,10 @@
   line-height: 36px;
   color: #1a202c;
   text-align: left;
+
+  @include if-device(phone) {
+    text-align: center;
+  }
 }
 
 .phoneInputCustom {
@@ -60,11 +70,14 @@
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: auto;
   outline: none;
   border: none;
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
+
+  @include if-device(phone) {
+    bottom: 80px;
+  }
 }
 
 .submitDisable {
@@ -86,4 +99,11 @@
   margin-top: auto;
   outline: none;
   border: none;
+
+  position: absolute;
+  bottom: 40px;
+
+  @include if-device(phone) {
+    bottom: 80px;
+  }
 }

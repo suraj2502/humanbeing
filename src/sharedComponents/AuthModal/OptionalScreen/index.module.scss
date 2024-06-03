@@ -17,4 +17,22 @@
       margin-top: 12px;
     }
   }
+
+  &__dropdown {
+    margin-top: 12px;
+  }
+
+  &__dob {
+    margin-top: 12px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #000000;
+    opacity: 0.7;
+    position: relative;
+    width: 100%;
+    input {
+      position: absolute;
+      right: 0px;
+    }
+  }
 }

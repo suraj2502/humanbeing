@@ -13,9 +13,9 @@ function Button({
   return (
     <>
       {hrefLink ? (
-        <Link href={hrefLink} className={customClass}>
+        <a href={hrefLink} className={customClass}>
           {name}
-        </Link>
+        </a>
       ) : (
         <button disabled={disabled} onClick={onClick} className={customClass}>
           {name}
