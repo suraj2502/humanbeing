@@ -8,7 +8,7 @@ export const createCampaign = (payload) => {
     creatorUserCode: Cookies.get("userCode"),
   };
   const token = Cookies.get("token");
-  return fetch("http://altruvo.org/api/campaign/create", {
+  return fetch("https://altruvo.org/api/campaign/create", {
     // Adding method type
     method: "POST",
 

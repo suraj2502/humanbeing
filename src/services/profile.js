@@ -4,7 +4,7 @@ export const updateNgoProfileDetails = (payload) => {
   payload = { ...payload, ngoUserCode: Cookies.get("userCode") };
   const token = Cookies.get("token");
 
-  return fetch("http://altruvo.org/api/update-ngo-user", {
+  return fetch("https://altruvo.org/api/update-ngo-user", {
     // Adding method type
     method: "POST",
 
@@ -23,7 +23,7 @@ export const campaignsByUser = () => {
   const userCode = Cookies.get("userCode")
   const token = Cookies.get("token");
 
-  return fetch(`http://altruvo.org/api/campaign/get-campaign-by-user/${userCode}`, {
+  return fetch(`https://altruvo.org/api/campaign/get-campaign-by-user/${userCode}`, {
     // Adding method type
     method: "GET",
 

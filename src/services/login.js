@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import Cookies from "js-cookie";
 
 export const sendOtp = (payload) => {
-  return fetch("http://altruvo.org/api/login", {
+  return fetch("https://altruvo.org/api/login", {
     // Adding method type
     method: "POST",
 
@@ -17,7 +17,7 @@ export const sendOtp = (payload) => {
 };
 
 export const verifyOtp = (payload) => {
-  return fetch("http://altruvo.org/api/verify-otp", {
+  return fetch("https://altruvo.org/api/verify-otp", {
     // Adding method type
     method: "POST",
 
@@ -35,7 +35,7 @@ export const updateRegisteredUserDetails = (payload) => {
   payload = { ...payload, isActive: false, userCode: Cookies.get("userCode") };
   const token = Cookies.get("token");
 
-  return fetch("http://altruvo.org/api/update-user", {
+  return fetch("https://altruvo.org/api/update-user", {
     // Adding method type
     method: "POST",
 
@@ -52,7 +52,7 @@ export const updateRegisteredUserDetails = (payload) => {
 
 export const getUserByPhone = (payload) => {
   payload = { ...payload, correlationKey: uuidv4() };
-  return fetch("http://altruvo.org/api/get-user-by-phone", {
+  return fetch("https://altruvo.org/api/get-user-by-phone", {
     // Adding method type
     method: "POST",
 
@@ -67,7 +67,7 @@ export const getUserByPhone = (payload) => {
 };
 
 export const createNgoUser = (payload) => {
-  return fetch("http://altruvo.org/api/register/ngo", {
+  return fetch("https://altruvo.org/api/register/ngo", {
     // Adding method type
     method: "POST",
 
@@ -87,7 +87,7 @@ export const getUserDetails = () => {
   };
   const token = Cookies.get("token");
 
-  return fetch("http://altruvo.org/api/get-user-details", {
+  return fetch("https://altruvo.org/api/get-user-details", {
     // Adding method type
     method: "POST",
 
@@ -106,7 +106,7 @@ export const getNgoUserDetails = (payload = {}) => {
   const userCode = Cookies.get("userCode");
   const token = Cookies.get("token");
 
-  return fetch(`http://altruvo.org/api/ngo_user/${userCode}`, {
+  return fetch(`https://altruvo.org/api/ngo_user/${userCode}`, {
     // Adding method type
     method: "GET",
 
