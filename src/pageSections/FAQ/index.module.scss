@@ -6,4 +6,8 @@
   @include if-device(phone) {
     padding: 20px 32px 0;
   }
+
+  a {
+    text-decoration: underline;
+  }
 }

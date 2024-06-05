@@ -84,7 +84,7 @@ function PhoneScreen({
         <Checkbox
           isChecked={isChecked}
           setIsChecked={setIsChecked}
-          label={`I have read <a target="_blank" href="/terms-and-conditions">Terms & Conditions</a>, and accept them.`}
+          label={`By clicking I accept <a target="_blank" href="/terms-and-conditions">T&C</a> and <a target="_blank" href="/privacy-policy">Privacy Policy</a>.`}
         />
       </div>
     </>

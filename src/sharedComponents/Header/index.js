@@ -24,10 +24,6 @@ const NAV_LINKS = [
     redirectTo: "/donate",
   },
   {
-    name: "Terms & Conditions",
-    redirectTo: "/terms-and-conditions",
-  },
-  {
     name: "Contact Us",
     redirectTo: "/contact-us",
   },

@@ -18,6 +18,10 @@ const ABOUT_LINKS = [
     redirectTo: "/terms-and-conditions",
   },
   {
+    name: "Privacy Policy",
+    redirectTo: "/privacy-policy",
+  },
+  {
     name: "Contact Us",
     redirectTo: "/contact-us",
   },
