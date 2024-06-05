@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Styles from "./index.module.scss";
 import Dropdown from "@/sharedComponents/Dropdown";
 import BeneficiaryCommonDetails from "./BeneficiaryCommonDetails";
+import Checkbox from "@/sharedComponents/Checkbox";
 // import BeneficiaryFamilyDetails from "./BeneficiaryFamilyDetails";
 // import BeneficiaryFriendDetails from "./BeneficiaryFriendDetails";
 // import BeneficiaryOtherDetails from "./BeneficiaryOtherDetails";
@@ -28,10 +29,16 @@ function NGOBeneficiaryScreen({
   const [beneficiaryPhoneInputError, setBeneficiaryPhoneInputError] =
     useState("");
 
+  const [isChecked, setIsChecked] = useState(false);
+
   const getFormAccordingToCategory = () => {
     switch (raisingFundsCategory) {
       case "Ourselves":
-        setShowCta(true);
+        if (isChecked) {
+          setShowCta(true);
+        } else {
+          setShowCta(false);
+        }
         break;
       //ask nothing else
       case "Individual":
@@ -48,6 +55,7 @@ function NGOBeneficiaryScreen({
             setBeneficiaryPhoneInput={setBeneficiaryPhoneInput}
             beneficiaryPhoneInputError={beneficiaryPhoneInputError}
             setBeneficiaryPhoneInputError={setBeneficiaryPhoneInputError}
+            isChecked={isChecked}
           />
         );
       // ask beneficiary relation father/mother/brother/sister -> others -> text field -> name/age/contact
@@ -65,6 +73,7 @@ function NGOBeneficiaryScreen({
             setBeneficiaryPhoneInput={setBeneficiaryPhoneInput}
             beneficiaryPhoneInputError={beneficiaryPhoneInputError}
             setBeneficiaryPhoneInputError={setBeneficiaryPhoneInputError}
+            isChecked={isChecked}
           />
         );
       // // know from -> text field -> name/age/contact
@@ -87,6 +96,15 @@ function NGOBeneficiaryScreen({
           customClass={Styles.wrapper__category__dropdown}
         />
       </div>
+      {raisingFundsCategory && (
+        <div className={Styles.checkbox}>
+          <Checkbox
+            isChecked={isChecked}
+            setIsChecked={setIsChecked}
+            label={`I have read <a target="_blank" href="/terms-and-conditions">Terms & Conditions</a>, and accept them.`}
+          />
+        </div>
+      )}
       {raisingFundsCategory && getFormAccordingToCategory()}
       {/* <Button
         disabled={!showCta}

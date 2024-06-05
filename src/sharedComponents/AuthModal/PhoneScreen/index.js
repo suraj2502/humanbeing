@@ -4,6 +4,7 @@ import Toggle from "@/sharedComponents/Toggle";
 import "react-phone-number-input/style.css";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import PhoneInputCommon from "@/sharedComponents/PhoneInput";
+import Checkbox from "@/sharedComponents/Checkbox";
 
 function PhoneScreen({
   setDisableCta,
@@ -13,6 +14,7 @@ function PhoneScreen({
   setShowToggle,
 }) {
   const [phoneError, setPhoneError] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const phoneHandleBlur = () => {
     if (phoneInput) {
@@ -23,15 +25,17 @@ function PhoneScreen({
   };
 
   useEffect(() => {
-    if (phoneInput) {
+    if (isChecked && phoneInput) {
       if (isValidPhoneNumber(phoneInput)) {
         setDisableCta(false);
         setPhoneError("");
       } else {
         setDisableCta(true);
       }
+    } else {
+      setDisableCta(true);
     }
-  }, [phoneInput]);
+  }, [phoneInput, isChecked]);
 
   return (
     <>
@@ -75,6 +79,13 @@ function PhoneScreen({
       <div className={Styles.isNgo}>
         <span>Are you a NGO ?</span>
         <Toggle showToggle={showToggle} setShowToggle={setShowToggle} />
+      </div>
+      <div className={Styles.checkbox}>
+        <Checkbox
+          isChecked={isChecked}
+          setIsChecked={setIsChecked}
+          label={`I have read <a target="_blank" href="/terms-and-conditions">Terms & Conditions</a>, and accept them.`}
+        />
       </div>
     </>
   );

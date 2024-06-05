@@ -1,0 +1,18 @@
+@import "../../styles/breakpoints";
+
+.container {
+  margin-top: 54px;
+  padding: 40px 50px;
+
+  @include if-device(phone) {
+    padding: 20px 15px;
+  }
+
+  &__category {
+    h2 {
+      @include if-device(phone) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

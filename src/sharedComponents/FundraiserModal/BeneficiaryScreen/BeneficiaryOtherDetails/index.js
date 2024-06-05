@@ -13,6 +13,7 @@ function BeneficiaryOtherDetails({
   setBeneficiaryDOB,
   beneficiaryPhoneInput,
   setBeneficiaryPhoneInput,
+  isChecked,
 }) {
   // const [otherRelation, setOtherRelation] = useState("");
   const [otherRelationError, setOtherRelationError] = useState("");
@@ -26,17 +27,21 @@ function BeneficiaryOtherDetails({
     useState("");
 
   useEffect(() => {
-    if (beneficiaryPhoneInputError) {
-      setShowCta(false);
-      return;
-    }
-    if (
-      otherRelation &&
-      beneficiaryName &&
-      beneficiaryDOB &&
-      beneficiaryPhoneInput
-    ) {
-      setShowCta(true);
+    if (isChecked) {
+      if (beneficiaryPhoneInputError) {
+        setShowCta(false);
+        return;
+      }
+      if (
+        otherRelation &&
+        beneficiaryName &&
+        beneficiaryDOB &&
+        beneficiaryPhoneInput
+      ) {
+        setShowCta(true);
+      } else {
+        setShowCta(false);
+      }
     } else {
       setShowCta(false);
     }
@@ -46,6 +51,7 @@ function BeneficiaryOtherDetails({
     beneficiaryDOB,
     beneficiaryPhoneInput,
     beneficiaryPhoneInputError,
+    isChecked,
   ]);
 
   const handleBlur = () => {

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Styles from "./index.module.scss";
 import Dropdown from "@/sharedComponents/Dropdown";
 import BeneficiaryFamilyDetails from "./BeneficiaryFamilyDetails";
 import BeneficiaryFriendDetails from "./BeneficiaryFriendDetails";
 import BeneficiaryOtherDetails from "./BeneficiaryOtherDetails";
+import Checkbox from "@/sharedComponents/Checkbox";
 
 const BENEFICIARY_CATEGORY_DROPDOWN = [
   "Myself",
@@ -47,10 +48,16 @@ function BeneficiaryScreen({
   otherRelation,
   setOtherRelation,
 }) {
+  const [isChecked, setIsChecked] = useState(false);
+
   const getFormAccordingToCategory = () => {
     switch (raisingFundsCategory) {
       case "Myself":
-        setShowCta(true);
+        if (isChecked) {
+          setShowCta(true);
+        } else {
+          setShowCta(false);
+        }
         break;
       //ask nothing else
       case "My Family":
@@ -68,6 +75,7 @@ function BeneficiaryScreen({
             beneficiaryPhoneInput={beneficiaryPhoneInput}
             setBeneficiaryPhoneInput={setBeneficiaryPhoneInput}
             setShowCta={setShowCta}
+            isChecked={isChecked}
           />
         );
       // ask beneficiary relation father/mother/brother/sister -> others -> text field -> name/age/contact
@@ -84,6 +92,7 @@ function BeneficiaryScreen({
             beneficiaryPhoneInput={beneficiaryPhoneInput}
             setBeneficiaryPhoneInput={setBeneficiaryPhoneInput}
             setShowCta={setShowCta}
+            isChecked={isChecked}
           />
         );
       // know from -> text field -> name/age/contact
@@ -100,6 +109,7 @@ function BeneficiaryScreen({
             beneficiaryPhoneInput={beneficiaryPhoneInput}
             setBeneficiaryPhoneInput={setBeneficiaryPhoneInput}
             setShowCta={setShowCta}
+            isChecked={isChecked}
           />
         );
       // know from -> text field -> name/age/contact
@@ -118,6 +128,15 @@ function BeneficiaryScreen({
           customClass={Styles.wrapper__category__dropdown}
         />
       </div>
+      {raisingFundsCategory && (
+        <div className={Styles.checkbox}>
+          <Checkbox
+            isChecked={isChecked}
+            setIsChecked={setIsChecked}
+            label={`I have read <a target="_blank" href="/terms-and-conditions">Terms & Conditions</a>, and accept them.`}
+          />
+        </div>
+      )}
       {raisingFundsCategory && getFormAccordingToCategory()}
       {/* <Button
         disabled={!showCta}

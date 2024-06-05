@@ -121,7 +121,9 @@ function OTPScreen({
   return (
     <>
       <div className={Styles.otpWrapper}>
-        <span className={Styles.otpWrapper__title}>{"We've sent an OTP on"}</span>
+        <span className={Styles.otpWrapper__title}>
+          {"We've sent an OTP on"}
+        </span>
         <div className={Styles.otpWrapper__editContainer}>
           <span className={Styles.otpWrapper__editContainer__phone}>
             {phone}

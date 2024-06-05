@@ -13,6 +13,7 @@ function BeneficiaryFriendDetails({
   setBeneficiaryDOB,
   beneficiaryPhoneInput,
   setBeneficiaryPhoneInput,
+  isChecked,
 }) {
   // const [friendRelation, setFriendRelation] = useState("");
   const [friendRelationError, setFriendRelationError] = useState("");
@@ -26,15 +27,19 @@ function BeneficiaryFriendDetails({
     useState("");
 
   useEffect(() => {
-    if (beneficiaryPhoneInputError) {
-      setShowCta(false);
-      return;
-    }
-    if (
-      (friendRelation && beneficiaryName && beneficiaryDOB,
-      beneficiaryPhoneInput)
-    ) {
-      setShowCta(true);
+    if (isChecked) {
+      if (beneficiaryPhoneInputError) {
+        setShowCta(false);
+        return;
+      }
+      if (
+        (friendRelation && beneficiaryName && beneficiaryDOB,
+        beneficiaryPhoneInput)
+      ) {
+        setShowCta(true);
+      } else {
+        setShowCta(false);
+      }
     } else {
       setShowCta(false);
     }
@@ -44,6 +49,7 @@ function BeneficiaryFriendDetails({
     beneficiaryDOB,
     beneficiaryPhoneInput,
     beneficiaryPhoneInputError,
+    isChecked,
   ]);
 
   const handleBlur = () => {

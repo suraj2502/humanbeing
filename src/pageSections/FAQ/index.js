@@ -3,12 +3,12 @@ import Styles from "./index.module.scss";
 import ColorTitle from "@/sharedComponents/ColorTitle";
 import Accordian from "@/Widgets/Accordian";
 
-function FAQ({ data, name }) {
+function FAQ({ data, name, showTitle = true }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className={Styles.container} id={name}>
-      <ColorTitle text={data.title} />
+      {showTitle && <ColorTitle text={data.title} />}
       {data.faqs?.map((faq, idx) => {
         return (
           <Accordian

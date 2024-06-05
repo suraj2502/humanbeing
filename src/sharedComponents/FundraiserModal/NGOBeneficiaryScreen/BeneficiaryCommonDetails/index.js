@@ -15,6 +15,7 @@ function BeneficiaryCommonDetails({
   setBeneficiaryPhoneInput,
   beneficiaryPhoneInputError,
   setBeneficiaryPhoneInputError,
+  isChecked,
 }) {
   //   const [beneficiaryName, setBeneficiaryName] = useState("");
   //   const [beneficiaryNameError, setBeneficiaryNameError] = useState("");

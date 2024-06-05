@@ -23,10 +23,10 @@ const NAV_LINKS = [
     name: "Donate",
     redirectTo: "/donate",
   },
-  // {
-  //   name: "Partner NGOs",
-  //   redirectTo: "/partner-ngos",
-  // },
+  {
+    name: "Terms & Conditions",
+    redirectTo: "/terms-and-conditions",
+  },
   {
     name: "Contact Us",
     redirectTo: "/contact-us",
@@ -95,7 +95,7 @@ function Header({ isMobile }) {
           <img
             src="https://x-stg.glance-cdn.com/public/content/amp/other/altgo.jpeg"
             width={60}
-            height={75}
+            height={60}
           />
           <span>ALTRUVO</span>
         </Link>

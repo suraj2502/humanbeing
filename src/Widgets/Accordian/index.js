@@ -33,7 +33,10 @@ function Accordian({
         <DownArrow />
       </div>
       {activeIndex === currentIndex && (
-        <span className={Styles.accordian__answer}>{answer}</span>
+        <div
+          dangerouslySetInnerHTML={{ __html: answer }}
+          className={Styles.accordian__answer}
+        />
       )}
     </div>
   );

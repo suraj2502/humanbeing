@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  color: gray;
+  font-weight: bold;
+  gap: 10px;
+
+  a {
+    text-decoration: underline;
+  }
+
+  input[type="checkbox"] {
+   cursor: pointer;
+    accent-color: green;
+  }
+  
+}

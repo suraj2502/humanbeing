@@ -26,6 +26,7 @@ export default function CampaignDetails({ data, isMobile }) {
   });
 
   return (
+    <>
     <div style={isMobile ? mobileStyle : desktopStyle} id="root">
       <Header isMobile={isMobile} />
       {sections.map((item) => {
@@ -40,8 +41,9 @@ export default function CampaignDetails({ data, isMobile }) {
           />
         ) : null;
       })}
-      {/* <Footer /> */}
     </div>
+    <Footer />
+    </>
   );
 }
 

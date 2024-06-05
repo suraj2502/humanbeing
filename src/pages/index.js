@@ -35,7 +35,7 @@ export default function Home({ data, isMobile }) {
           />
         ) : null;
       })}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

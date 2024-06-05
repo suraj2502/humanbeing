@@ -6,6 +6,7 @@ import Header from "@/sharedComponents/Header";
 import { getAllCampaigns } from "@/services/homepage";
 import detectDevice from "@/utils/detectDevice";
 import DonationsPage from "@/pageSections/DonationsPage";
+import Footer from "@/sharedComponents/Footer";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +16,7 @@ export default function Home({ data, isMobile }) {
     <div id="root">
       <Header isMobile={isMobile} />
       <DonationsPage data={data} isMobile={isMobile} />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

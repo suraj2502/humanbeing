@@ -6,16 +6,16 @@ import Fundraiser from "@/assets/icons/Fundraiser";
 
 const ABOUT_LINKS = [
   {
-    name: "Partners",
-    redirectTo: "/partners",
+    name: "About us",
+    redirectTo: "/about-us",
   },
   {
-    name: "How-to",
-    redirectTo: "/how-to",
+    name: "Donate",
+    redirectTo: "/donate",
   },
   {
-    name: "Community",
-    redirectTo: "/community",
+    name: "Terms & Conditions",
+    redirectTo: "/terms-and-conditions",
   },
   {
     name: "Contact Us",
@@ -47,7 +47,14 @@ function Footer() {
     <footer className={Styles.footer}>
       <div className={Styles.footer__left}>
         <div className={Styles.footer__left__about}>
-          <span>ABOUT</span>
+          <Link href="/" className={Styles.footer__left__about__logoContainer}>
+            <img
+              src="https://x-stg.glance-cdn.com/public/content/amp/other/altgo.jpeg"
+              width={60}
+              height={60}
+            />
+            <span>ALTRUVO</span>
+          </Link>
           <div className={Styles.footer__left__about__links}>
             {ABOUT_LINKS.map((item, idx) => {
               return (
@@ -58,7 +65,7 @@ function Footer() {
             })}
           </div>
         </div>
-        <div className={Styles.footer__left__about}>
+        {/* <div className={Styles.footer__left__about}>
           <span>TERMS & CONDITIONS</span>
           <div className={Styles.footer__left__about__links}>
             {TERM_LINKS.map((item, idx) => {
@@ -69,17 +76,17 @@ function Footer() {
               );
             })}
           </div>
-        </div>
+        </div> */}
       </div>
       <div className={Styles.footer__right}>
         <div className={Styles.footer__right__office}>
           <span>OUR OFFICE</span>
           <p>
-            Jalan Rambu Raya Timur No. 18, Kota Administrasi, Jakarta Pusat.
-            ZIP: 10000
+            1103 Aksansha Opluence, Shakti Nagar, Opposite Traffic Garden, Kota,
+            India - 324009
           </p>
         </div>
-        <span>2023 © HumanBeing</span>
+        <span>2024 © Altruvo Social Ventures Pvt. Ltd.</span>
       </div>
     </footer>
   );

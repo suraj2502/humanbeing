@@ -74,7 +74,9 @@ function MyCampaigns() {
       ) : (
         <>
           <div>
-            {"You haven't create any campaigns, click on the button below to start one!"}
+            {
+              "You haven't create any campaigns, click on the button below to start one!"
+            }
           </div>
           <Button
             hrefLink="/fundraiser"

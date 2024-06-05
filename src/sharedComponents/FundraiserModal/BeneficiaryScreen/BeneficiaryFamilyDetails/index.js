@@ -26,6 +26,7 @@ function BeneficiaryFamilyDetails({
   setBeneficiaryDOB,
   beneficiaryPhoneInput,
   setBeneficiaryPhoneInput,
+  isChecked,
 }) {
   // const [familyRelation, setFamilyRelation] = useState("");
 
@@ -50,25 +51,29 @@ function BeneficiaryFamilyDetails({
   };
 
   useEffect(() => {
-    if (
-      familyRelation &&
-      beneficiaryName &&
-      beneficiaryDOB &&
-      beneficiaryPhoneInput
-    ) {
-      if (beneficiaryPhoneInputError) {
-        setShowCta(false);
-        return;
-      }
-      if (familyRelation == "Others") {
-        if (otherFamilyRelation) {
-          setShowCta(true);
-        } else {
+    if (isChecked) {
+      if (
+        familyRelation &&
+        beneficiaryName &&
+        beneficiaryDOB &&
+        beneficiaryPhoneInput
+      ) {
+        if (beneficiaryPhoneInputError) {
           setShowCta(false);
+          return;
+        }
+        if (familyRelation == "Others") {
+          if (otherFamilyRelation) {
+            setShowCta(true);
+          } else {
+            setShowCta(false);
+          }
+        } else {
+          console.log("inside set true");
+          setShowCta(true);
         }
       } else {
-        console.log("inside set true");
-        setShowCta(true);
+        setShowCta(false);
       }
     } else {
       setShowCta(false);
@@ -80,6 +85,7 @@ function BeneficiaryFamilyDetails({
     beneficiaryDOB,
     beneficiaryPhoneInput,
     beneficiaryPhoneInputError,
+    isChecked
   ]);
 
   return (
