@@ -50,7 +50,7 @@ export async function getServerSideProps(context) {
         },
         {
           question: "Company Information",
-          answer: `The domain name www.altruvo.org ("Website") is licensed for use by Altruvo Social Ventures Private Limited, an Indian company, duly incorporated under the Indian Companies Act, 2013. Our registered office is located at 1103, Akansha Opulence, Shakti Nagar, Kota - 324009. Altruvo Online Ventures Inc, a subsidiary incorporated under the General Corporation Law of Delaware, is wholly owned by Altruvo Social Ventures Private Limited.`,
+          answer: `The domain name www.altruvo.org ("Website") is licensed for use by Altruvo Social Ventures Private Limited, an Indian company, duly incorporated under the Indian Companies Act, 2013. Our registered office is located at 1103, Akansha Opulence, Shakti Nagar, Kota - 324009.`,
         },
         {
           question: "Terms of Use",
@@ -555,6 +555,11 @@ export async function getServerSideProps(context) {
         {
           question: "Discharge of Liability",
           answer: `Altruvo will make payments, net of costs, charges, and fees, into the bank account provided by the campaigner during registration. Once payments are made into the provided bank account, Altruvo is discharged of any liability towards the campaigner and donors/contributors, who are not eligible for claims or refunds.`,
+        },
+        {
+          question: "Refund",
+          answer:
+            "Refunds will be issued to donors, less any applicable transaction fees, in the event that a campaign does not meet its funding target, and will be processed in accordance with the settlement cycle of the payment gateway.",
         },
       ],
     },
