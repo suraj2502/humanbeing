@@ -4,13 +4,21 @@ import Styles from "./index.module.scss";
 import DonationCard from "./DonationCard";
 import Link from "next/link";
 
-function DonationsGrid({ data, name }) {
+function DonationsGrid({ data, name, isMobile, userData }) {
+  console.log("donationData", data)
   return (
     <section id={name} className={Styles.container}>
       <ColorTitle text={data.title} />
       <div className={Styles.container__grid}>
         {data?.donations?.map((item, idx) => {
-          return <DonationCard key={idx} item={item} />;
+          return (
+            <DonationCard
+              userData={userData}
+              isMobile={isMobile}
+              key={idx}
+              item={item}
+            />
+          );
         })}
         {/* <DonationCard />
         <DonationCard />

@@ -23,7 +23,7 @@ function Profile({ userData, setUserData, isMobile }) {
       case "My Donation(s)":
         return <MyDonations />;
       case "My Campaign(s)":
-        return <MyCampaigns />;
+        return <MyCampaigns isMobile={isMobile} />;
     }
   };
 

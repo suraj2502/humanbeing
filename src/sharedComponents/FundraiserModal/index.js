@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./index.module.scss";
 import Modal from "@/Widgets/Modal";
 import Button from "@/Widgets/Button";
@@ -201,19 +201,16 @@ function FundraiserModal({ isOpen, setIsOpen, isMobile }) {
   const convertImages = (data) => {
     let res = [];
     for (let i = 0; i < data.length; i++) {
-      res.push(
-        "https://cimages.milaap.org/milaap/image/upload/c_fill,h_452,w_603/v1709715941/production/images/campaign/761952/eon1zt5id1zdjmolewrj_1709715964.jpg"
-      );
+      res.push(data[i].file_url);
     }
     return res;
   };
 
   const convertDocs = (data) => {
+    console.log("data", data)
     let res = [];
     for (let i = 0; i < data.length; i++) {
-      res.push(
-        "https://kettocdn.gumlet.io/media/campaign/892000/892772/image/65c23f207fcdc.jpg?w=1440&dpr=2.0"
-      );
+      res.push(data[i].file_url);
     }
     return res;
   };
@@ -267,6 +264,10 @@ function FundraiserModal({ isOpen, setIsOpen, isMobile }) {
         }
     }
   };
+
+  useEffect(() => {
+    console.log("formResponses", formResponses);
+  }, [formResponses]);
 
   return (
     <>

@@ -5,9 +5,42 @@ import Header from "@/sharedComponents/Header";
 import Footer from "@/sharedComponents/Footer";
 import detectDevice from "@/utils/detectDevice";
 import { getAllCampaigns } from "@/services/homepage";
+import { getNgoUserDetails, getUserDetails } from "@/services/login";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 export default function Home({ data, isMobile }) {
   console.log("data", data, isMobile);
+  const [userData, setUserData] = useState({});
+  const isNgo = Cookies.get("userType") == "ngo";
+  const userCode = Cookies.get("userCode") || null;
+
+  useEffect(() => {
+    if (userCode) {
+      if (isNgo) {
+        getNgoUserDetails()
+          .then((res) => res.json())
+          .then((json) => {
+            console.log("user ngo details", json);
+            if (json.success) {
+              setUserData(json.ngoUserDetail);
+            } else {
+              window.location.href = "/500";
+            }
+          });
+      } else {
+        getUserDetails()
+          .then((res) => res.json())
+          .then((json) => {
+            if (json.success) {
+              setUserData(json.userDetail);
+            } else {
+              window.location.href = "/500";
+            }
+          });
+      }
+    }
+  }, [userCode]);
 
   const sections = data.map((section) => {
     return {
@@ -28,6 +61,7 @@ export default function Home({ data, isMobile }) {
         console.log("tem.data", item.data);
         return Section ? (
           <Section
+            userData={userData}
             isMobile={isMobile}
             data={item.data}
             name={item.name}
@@ -687,7 +721,6 @@ export async function getServerSideProps(context) {
   //     createdForDob: "",
   //   },
   // ];
-
   await getAllCampaigns({
     pageSize: 6,
     offset: 0,

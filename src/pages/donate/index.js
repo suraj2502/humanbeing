@@ -381,7 +381,7 @@ export async function getServerSideProps(context) {
   let data = {};
 
   await getAllCampaigns({
-    pageSize: 1,
+    pageSize: 6,
     offset: 0,
   })
     .then((res) => res.json())

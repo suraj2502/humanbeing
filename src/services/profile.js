@@ -20,17 +20,38 @@ export const updateNgoProfileDetails = (payload) => {
 };
 
 export const campaignsByUser = () => {
-  const userCode = Cookies.get("userCode")
+  const userCode = Cookies.get("userCode");
   const token = Cookies.get("token");
 
-  return fetch(`https://altruvo.org/api/campaign/get-campaign-by-user/${userCode}`, {
-    // Adding method type
-    method: "GET",
+  return fetch(
+    `https://altruvo.org/api/campaign/get-campaign-by-user/${userCode}`,
+    {
+      // Adding method type
+      method: "GET",
 
-    // Adding headers to the request
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      Authorization: `Token ${token}`,
-    },
-  });
+      // Adding headers to the request
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Token ${token}`,
+      },
+    }
+  );
+};
+
+export const donationsByFilter = (campaign_code = "", user_code = "") => {
+  const token = Cookies.get("token");
+
+  return fetch(
+    `https://altruvo.org/api/payment/get-successful-donation?campaign_code=${campaign_code}&user_code=${user_code}`,
+    {
+      // Adding method type
+      method: "GET",
+
+      // Adding headers to the request
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Token ${token}`,
+      },
+    }
+  );
 };

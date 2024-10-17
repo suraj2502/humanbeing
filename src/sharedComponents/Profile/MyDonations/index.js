@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./index.module.scss";
 import DonationCard from "./DonationCard";
 import Button from "@/Widgets/Button";
+import { donationsByFilter } from "@/services/profile";
+import Cookies from "js-cookie";
 
 const MY_DONATIONS_DATA = [
   {
@@ -42,12 +44,25 @@ const MY_DONATIONS_DATA = [
 ];
 
 function MyDonations() {
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    donationsByFilter("", Cookies.get("userCode"))
+      .then((res) => res.json())
+      .then((json) => {
+        console.log("json", json);
+        if (json.success) {
+          setData(json?.donationDetail);
+        }
+      });
+  }, []);
+
   return (
     <div className={Styles.wrapper}>
-      {MY_DONATIONS_DATA.length > 0 ? (
+      {data && data.length > 0 ? (
         <>
-          {MY_DONATIONS_DATA.map((item, idx) => {
-            return <DonationCard key={idx} />;
+          {data.map((item, idx) => {
+            return <DonationCard item={item} key={idx} />;
           })}
         </>
       ) : (

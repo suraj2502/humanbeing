@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Modal from "@/Widgets/Modal";
 import Styles from "./index.module.scss";
 import Button from "@/Widgets/Button";
@@ -69,6 +69,7 @@ function AuthModal({ isOpen, setIsOpen, isMobile, showCloseButton = true }) {
   const [emailInput, setEmailInput] = useState("");
   const [gender, setGender] = useState("");
   const [date, setDate] = useState("");
+  const isNewUserRef = useRef(false);
 
   const [details, setDetails] = useState({
     orgName: "",
@@ -146,6 +147,9 @@ function AuthModal({ isOpen, setIsOpen, isMobile, showCloseButton = true }) {
         .then((response) => response.json())
         .then((json) => {
           if (json.success) {
+            if (json.isNewUser) {
+              isNewUserRef.current = true;
+            }
             if (json.isNgo) {
               setRootError(
                 "This number is already associated with a NGO account"
@@ -223,7 +227,6 @@ function AuthModal({ isOpen, setIsOpen, isMobile, showCloseButton = true }) {
           })
             .then((responseUserByPhone) => responseUserByPhone.json())
             .then((jsonUserByPhone) => {
-              let isNewUser = true;
               // if (jsonUserByPhone.success) {
               //   isNewUser = false;
               // }
@@ -246,7 +249,7 @@ function AuthModal({ isOpen, setIsOpen, isMobile, showCloseButton = true }) {
                         setShowToast(false);
                       }, 3000);
                     } else {
-                      if (isNewUser) {
+                      if (isNewUserRef.current) {
                         setShowToast(true);
                         setDisableCta(true);
                         setShowSkip(true);

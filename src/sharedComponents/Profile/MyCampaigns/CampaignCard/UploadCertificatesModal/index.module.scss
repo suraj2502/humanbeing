@@ -1,0 +1,52 @@
+/* Fix table head */
+.tableFixHead {
+  overflow: auto;
+  height: calc(100% - 40px);
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th,
+  td {
+    padding: 8px 16px;
+    text-align: center;
+  }
+  thead {
+    background: white;
+    width: 100%;
+    position: sticky;
+    top: 0;
+  }
+  &__btn {
+    cursor: pointer;
+  }
+}
+
+.files {
+  font-size: 13px;
+  span {
+    margin-right: 10px;
+  }
+}
+
+.btn {
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 12px 24px;
+  border-radius: 28px;
+  background: #4ea1d0;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  margin-top: 20px;
+  
+
+  // @include if-device(phone) {
+  //   width: 100%;
+  // }
+}
