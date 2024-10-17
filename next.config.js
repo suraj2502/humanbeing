@@ -17,6 +17,12 @@ const nextConfig = {
         // port: '',
         // pathname: '/account123/**',
       },
+      {
+        protocol: "https",
+        hostname: "altruvo.org",
+        // port: '',
+        // pathname: '/account123/**',
+      },
     ],
   },
   eslint: {
