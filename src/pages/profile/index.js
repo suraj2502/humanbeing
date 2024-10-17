@@ -7,15 +7,6 @@ import { getNgoUserDetails, getUserDetails } from "@/services/login";
 import Cookies from "js-cookie";
 
 export default function ProfilePage({ data, isMobile }) {
-  //   const sections = data.map((section) => {
-  //     return {
-  //       // eslint-disable-next-line no-underscore-dangle
-  //       id: section.componentId,
-  //       data: section.props,
-  //       ui: campaignDetailsSections[section.componentName] || null,
-  //       name: section.componentName,
-  //     };
-  //   });
   const [userData, setUserData] = useState({});
   const isNgo = Cookies.get("userType") == "ngo";
 

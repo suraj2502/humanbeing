@@ -75,12 +75,12 @@ function AboutCampaign({ data, isMobile }) {
             </tr>
             <tr>
               <td>
-                <p>Name 1</p>
-                <i>Location 1</i>
+                <p>{data.createdBy}</p>
+                {/* <i>Location 1</i> */}
               </td>
               <td>
-                <p>Name 2</p>
-                <i>Location 2</i>
+                <p>{data.createdFor}</p>
+                {/* <i>Location 2</i> */}
               </td>
             </tr>
           </table>
@@ -118,8 +118,8 @@ function AboutCampaign({ data, isMobile }) {
               </tr>
               {data.highestDonations.map((item) => {
                 return (
-                  <tr key={item.name}>
-                    <td>{item.name}</td>
+                  <tr key={item.donorName}>
+                    <td>{item.name || "Anonymous"}</td>
                     <td>
                       {item.currency} {item.amount}
                     </td>
@@ -127,7 +127,7 @@ function AboutCampaign({ data, isMobile }) {
                 );
               })}
             </table>
-            <p>View All Donors</p>
+            {/* <p>View All Donors</p> */}
           </div>
         )}
         {/* <div className={Styles.container__supportersDetailsWrapper__supporter}>

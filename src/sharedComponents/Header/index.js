@@ -44,6 +44,9 @@ function Header({ isMobile }) {
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
+      if (window.location.href.includes("/profile")) {
+        window.location.href = "/";
+      }
     }
   }, [authCookie]);
 
@@ -137,7 +140,7 @@ function Header({ isMobile }) {
                       <div
                         className={Styles.header__container__profile__dropdown}
                       >
-                        <span>View Profile</span>
+                        <a href="/profile">View Profile</a>
                         <span onClick={handleLogoutCookie}>Logout</span>
                       </div>
                     )}

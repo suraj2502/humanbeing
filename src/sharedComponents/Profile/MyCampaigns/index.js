@@ -49,7 +49,7 @@ const MY_CAMPAIGNS_DATA = [
   },
 ];
 
-function MyCampaigns() {
+function MyCampaigns({ isMobile }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -68,14 +68,14 @@ function MyCampaigns() {
       {data.length > 0 ? (
         <>
           {data.map((item, idx) => {
-            return <CampaignCard key={idx} />;
+            return <CampaignCard isMobile={isMobile} item={item} key={idx} />;
           })}
         </>
       ) : (
         <>
           <div>
             {
-              "You haven't create any campaigns, click on the button below to start one!"
+              "You haven't created any campaigns, click on the button below to start one!"
             }
           </div>
           <Button

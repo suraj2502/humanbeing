@@ -3,18 +3,65 @@ import Styles from "./index.module.scss";
 import Button from "@/Widgets/Button";
 import ShareModal from "@/sharedComponents/SharedModal";
 import Edit from "@/assets/icons/Edit";
+import UploadCertificatesModal from "./UploadCertificatesModal";
+import Modal from "@/Widgets/Modal";
 
 const campaingnTitle = "Campaign Title";
 
-function CampaignCard() {
+const desktopStyles = {
+  background: "white",
+  border: "none",
+  height: "fit-content",
+  transform: "translate(-50%, -50%)",
+  position: "absolute",
+  left: "50%",
+  top: "50%",
+  padding: "0",
+  width: "720px",
+  borderRadius: "16px",
+};
+
+const mobileStyle = {
+  border: "none",
+  inset: 0,
+  padding: 0,
+  borderRadius: 0,
+  height: "100vh",
+  width: "100vw",
+  overflow: "hidden",
+  transform: "translate(0, 0)",
+  left: "0",
+  top: "0",
+  position: "fixed",
+};
+
+function CampaignCard({ item, idx, isMobile }) {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [isMoreOptionsOpen, setIsMoreOptionsOpen] = useState(false);
+  const [showUploadCertificatesModal, setShowUploadCertificatesModal] =
+    useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+
+  console.log("item..", item);
 
   const message = `Check out this campaign : ${campaingnTitle}`;
 
   const handleShare = (e) => {
-    e.stopPropagation();
     setIsShareModalOpen(true);
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
+  const handleEdit = (e) => {
+    setShowEditModal(true);
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
+  const handleUploadCertificate = (e) => {
+    setShowUploadCertificatesModal(true);
+    e.stopPropagation();
+    e.preventDefault();
   };
 
   return (
@@ -23,18 +70,38 @@ function CampaignCard() {
         <ShareModal
           isOpen={isShareModalOpen}
           setOpen={setIsShareModalOpen}
-          url={window.location.href}
+          url={`/donate`}
           programTitle={campaingnTitle}
           message={message}
         />
       )}
-      <div
-        onClick={() => {
-          console.log("redirect to campaign");
-        }}
+      {showUploadCertificatesModal && (
+        <UploadCertificatesModal
+          isUploadCertificatesModalOpen={showUploadCertificatesModal}
+          setIsUploadCertificatesModalOpen={setShowUploadCertificatesModal}
+          isMobile={isMobile}
+          campaignCode={item.campaignCode}
+        />
+      )}
+      {showEditModal && (
+        <Modal
+          isOpen={showEditModal}
+          style={isMobile ? mobileStyle : desktopStyles}
+          closeModal={() => setShowEditModal(false)}
+          showCloseButton={showEditModal}
+          customClassName={isMobile ? mobileStyle : desktopStyles}
+        >
+          Post an update here
+        </Modal>
+      )}
+      <a
+        // onClick={() => {
+        //   window.location.href = ""
+        // }}
+        href={`/donate/${item.campaignCode}`}
         className={Styles.container}
       >
-        <div className={Styles.container__edit}>
+        <div onClick={handleEdit} className={Styles.container__edit}>
           <span>Edit</span> <Edit />
         </div>
         {/* <div className={Styles.container__more}>
@@ -60,38 +127,36 @@ function CampaignCard() {
             </div>  */}
         <div className={Styles.container__left}>
           <span className={Styles.container__left__donation}>
-            You raised <b>INR 5000</b> for this campaign
+            You raised <b>INR {item?.consolidatedAmountRaised}</b> for this
+            campaign
           </span>
           <div className={Styles.container__left__title}>
-            This is campaign title This is campaign title This is campaign title
-            This is campaign title
+            {item?.campaignName}
           </div>
           <div className={Styles.container__left__description}>
-            This is campaign description This is campaign description This is
-            campaign description This is campaign description This is campaign
-            description This is campaign description This is campaign
-            description This is campaign description This is campaign
-            description
+            {item?.description}
           </div>
         </div>
         <div className={Styles.container__right}>
-          <Button
-            onClick={() => {}}
-            name="Withdraw"
-            customClass={Styles.container__right__btnWithdraw}
-          />
+          {item?.progressPercentage >= 80 && (
+            <Button
+              onClick={() => {}}
+              name="Withdraw"
+              customClass={Styles.container__right__btnWithdraw}
+            />
+          )}
           <Button
             onClick={handleShare}
             name="Spread The Word"
             customClass={Styles.container__right__btnSpread}
           />
           <Button
-            onClick={() => {}}
+            onClick={handleUploadCertificate}
             name="Upload Certificates"
             customClass={Styles.container__right__btnSpread}
           />
         </div>
-      </div>
+      </a>
     </>
   );
 }

@@ -13,6 +13,8 @@
   padding-right: 36px;
   padding-top: 24px;
   cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
 
   @include if-device(phone) {
     flex-direction: column;

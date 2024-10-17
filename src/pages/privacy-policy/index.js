@@ -83,10 +83,10 @@ export async function getServerSideProps(context) {
             Platform, the Platform or some parts of it may not be accessible if cookies are disabled. You
             may also be required to re-enter your password more frequently during a session.</p><p>Additionally, you may encounter "cookies" or other similar devices on certain pages of the
             Platform that are placed by third parties. We do not control the use of cookies by third parties.</p><p>If you choose to donate or contribute on or through the Platform, we collect information
-            about your donation patterns and generally your usage behavior, we donot share your donation detail(s) to third-parties.</p><p>If you transact with us (through making donations/contributions), we collect some additional
+            about your donation patterns and generally your usage behavior.</p><p>If you transact with us (through making donations/contributions), we collect some additional
             information, such as a billing address, a credit/debit card number and credit/debit card
             expiration date, and/or other payment instrument details and tracking information from
-            cheques or money orders, we donot store any card information after the transaction is complete.</p><p>If you choose to post messages on our message boards, chat rooms, or other message areas or
+            cheques or money orders.</p><p>If you choose to post messages on our message boards, chat rooms, or other message areas or
             leave feedback, we will collect that information you provide to us. We retain this information
             as necessary to resolve disputes, provide user support, and troubleshoot problems as
             permitted by law.</p><p>If you send us personal correspondence, such as emails or letters, or if other users or third
@@ -120,7 +120,7 @@ export async function getServerSideProps(context) {
         person other than as required by law: Sensitive Personal Data or Information of any person
         being the password, financial information such as bank account or credit card or debit card or
         other payment instrument details, sexual orientation, or any other sensitive personal
-        information not essential for the continued use of the Platform.</p><p>We may conduct background-check(s) by sharing your information with third-party vendors or our other corporate
+        information not essential for the continued use of the Platform.</p><p>We may share your personal information with third-party vendors or our other corporate
         and/or associate entities and affiliates to help with identity verification; detect and prevent
         identity theft, fraud, other potentially illegal acts, and cybersecurity incidents; correlate
         related or multiple accounts to prevent abuse of our services; and to facilitate joint or co-

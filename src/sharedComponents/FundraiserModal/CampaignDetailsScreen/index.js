@@ -5,7 +5,7 @@ import Input from "@/Widgets/InputBox";
 import Dropdown from "@/sharedComponents/Dropdown";
 import FileUploader from "@/sharedComponents/FileUploader";
 
-const CURRENCY_DROPDOWN = ["INR", "USD"];
+const CURRENCY_DROPDOWN = ["INR"];
 
 const CAMPAIGN_CATEGORY_LIST = ["Education", "Health", "Other"];
 
