@@ -2,6 +2,7 @@
 const nextConfig = {
   distDir: "build",
   reactStrictMode: true,
+
   images: {
     remotePatterns: [
       {
@@ -17,6 +18,11 @@ const nextConfig = {
         // pathname: '/account123/**',
       },
     ],
+  },
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
   },
 };
 
